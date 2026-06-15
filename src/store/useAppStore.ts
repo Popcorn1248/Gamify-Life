@@ -5,6 +5,7 @@ import { PILLARS } from '../data/pillars';
 import { SKILL_MAP, STARTER_SKILL_IDS } from '../data/skills';
 import { HABIT_MAP } from '../data/habits';
 import { todayKey } from '../lib/leveling';
+import { ACHIEVEMENT_CHECKS, type AchievementContext } from '../lib/achievementChecks';
 
 interface AppState {
   pillarXp: Record<PillarId, number>;
@@ -22,6 +23,10 @@ interface AppState {
   habitLogs: Record<string, Record<string, number>>;
   /** habitId -> dates for which XP has already been awarded */
   habitXpAwarded: Record<string, string[]>;
+  /** achievement id -> ISO timestamp when it was unlocked */
+  unlockedAchievements: Record<string, string>;
+  /** achievement ids waiting to be shown as a toast, in order */
+  achievementToastQueue: string[];
 
   addSkillToActive: (pillar: PillarId, skillId: string) => void;
   removeSkillFromActive: (pillar: PillarId, skillId: string) => void;
@@ -30,6 +35,8 @@ interface AppState {
   removeCustomSkill: (skillId: string) => void;
   setHabitGoal: (habitId: string, goal: number) => void;
   logHabit: (habitId: string, date: string, amount: number) => void;
+  checkAchievements: () => void;
+  dismissAchievementToast: () => void;
   resetAllData: () => void;
 }
 
@@ -48,7 +55,7 @@ function defaultActiveSkillIds(): Record<PillarId, string[]> {
 
 export const useAppStore = create<AppState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       pillarXp: emptyPillarRecord(0),
       activeSkillIds: defaultActiveSkillIds(),
       customSkills: [],
@@ -57,6 +64,8 @@ export const useAppStore = create<AppState>()(
       habitGoals: {},
       habitLogs: {},
       habitXpAwarded: {},
+      unlockedAchievements: {},
+      achievementToastQueue: [],
 
       addSkillToActive: (pillar, skillId) => {
         set((state) => {
@@ -110,6 +119,7 @@ export const useAppStore = create<AppState>()(
             };
           });
         }
+        get().checkAchievements();
       },
 
       addCustomSkill: (skill) => {
@@ -122,6 +132,7 @@ export const useAppStore = create<AppState>()(
             [skill.pillar]: [...state.activeSkillIds[skill.pillar], id],
           },
         }));
+        get().checkAchievements();
       },
 
       removeCustomSkill: (skillId) => {
@@ -202,6 +213,40 @@ export const useAppStore = create<AppState>()(
             },
           };
         });
+        get().checkAchievements();
+      },
+
+      checkAchievements: () => {
+        set((state) => {
+          const ctx: AchievementContext = {
+            pillarXp: state.pillarXp,
+            completedOnce: state.completedOnce,
+            dailyCompletions: state.dailyCompletions,
+            customSkills: state.customSkills,
+            habitGoals: state.habitGoals,
+            habitLogs: state.habitLogs,
+          };
+
+          const newlyUnlocked: Record<string, string> = {};
+          for (const [id, check] of Object.entries(ACHIEVEMENT_CHECKS)) {
+            if (!(id in state.unlockedAchievements) && check(ctx)) {
+              newlyUnlocked[id] = new Date().toISOString();
+            }
+          }
+
+          if (Object.keys(newlyUnlocked).length === 0) return state;
+
+          return {
+            unlockedAchievements: { ...state.unlockedAchievements, ...newlyUnlocked },
+            achievementToastQueue: [...state.achievementToastQueue, ...Object.keys(newlyUnlocked)],
+          };
+        });
+      },
+
+      dismissAchievementToast: () => {
+        set((state) => ({
+          achievementToastQueue: state.achievementToastQueue.slice(1),
+        }));
       },
 
       resetAllData: () => {
@@ -214,6 +259,8 @@ export const useAppStore = create<AppState>()(
           habitGoals: {},
           habitLogs: {},
           habitXpAwarded: {},
+          unlockedAchievements: {},
+          achievementToastQueue: [],
         });
       },
     }),
