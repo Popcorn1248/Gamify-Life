@@ -1,0 +1,157 @@
+import type { SkillDefinition } from '../types';
+
+/**
+ * Full catalog of skills/quests for every pillar.
+ * `repeatable: true` = daily habit that can be checked off again each day.
+ * `repeatable: false` = one-time achievement/quest.
+ */
+export const SKILLS: SkillDefinition[] = [
+  // ─────────────────────────────── KNOWLEDGE ───────────────────────────────
+  { id: 'know-read-20', pillar: 'knowledge', title: 'Read for 20 minutes', description: 'Read a book, article, or anything that teaches you something.', xp: 10, repeatable: true },
+  { id: 'know-finish-chapter', pillar: 'knowledge', title: 'Finish a chapter of a book', description: 'Make real progress on a book you are reading.', xp: 15, repeatable: true },
+  { id: 'know-practice-skill', pillar: 'knowledge', title: 'Practice a skill for 15 minutes', description: 'Instrument, language, coding, drawing - anything you are building.', xp: 10, repeatable: true },
+  { id: 'know-new-words', pillar: 'knowledge', title: 'Learn 5 new words in another language', description: 'Use an app, flashcards, or a dictionary.', xp: 10, repeatable: true },
+  { id: 'know-documentary', pillar: 'knowledge', title: 'Watch an educational video or documentary', description: 'Learn something new in 20+ minutes.', xp: 10, repeatable: true },
+  { id: 'know-teach', pillar: 'knowledge', title: 'Teach someone something you learned', description: 'Explaining a concept out loud cements it in your memory.', xp: 20, repeatable: true },
+  { id: 'know-course-module', pillar: 'knowledge', title: 'Complete an online course module', description: 'One lesson, one quiz, one step of progress.', xp: 20, repeatable: true },
+  { id: 'know-write-summary', pillar: 'knowledge', title: 'Write a summary of something you learned', description: 'A short journal entry or note counts.', xp: 15, repeatable: true },
+  { id: 'know-finish-book', pillar: 'knowledge', title: 'Finish an entire book', description: 'Cover to cover - fiction or non-fiction.', xp: 50, repeatable: false },
+  { id: 'know-start-course', pillar: 'knowledge', title: 'Start a new online course', description: 'Coursera, Udemy, YouTube series - pick something and enroll.', xp: 25, repeatable: false },
+  { id: 'know-touch-typing', pillar: 'knowledge', title: 'Learn touch typing', description: 'Practice with a typing trainer until you can type without looking.', xp: 30, repeatable: false },
+  { id: 'know-basic-coding', pillar: 'knowledge', title: 'Learn the basics of coding', description: 'Work through an intro Python/JavaScript tutorial.', xp: 30, repeatable: false },
+  { id: 'know-new-genre', pillar: 'knowledge', title: 'Read a book outside your usual genre', description: 'Step out of your comfort zone.', xp: 25, repeatable: false },
+  { id: 'know-memorize', pillar: 'knowledge', title: 'Memorize a poem or short speech', description: 'Great for memory and public speaking.', xp: 25, repeatable: false },
+  { id: 'know-new-recipe', pillar: 'knowledge', title: 'Learn a new recipe and cook it', description: 'A practical, edible skill.', xp: 20, repeatable: false },
+  { id: 'know-museum', pillar: 'knowledge', title: 'Visit a museum or exhibit', description: 'Soak in some culture and history.', xp: 25, repeatable: false },
+  { id: 'know-instrument-song', pillar: 'knowledge', title: 'Learn to play a song on an instrument', description: 'Start small - even a few bars counts.', xp: 30, repeatable: false },
+  { id: 'know-puzzle', pillar: 'knowledge', title: 'Do a puzzle or brain teaser', description: 'Crossword, sudoku, riddle - flex your brain.', xp: 10, repeatable: true },
+  { id: 'know-deep-research', pillar: 'knowledge', title: 'Research a topic you are curious about for 30 minutes', description: 'Follow your curiosity down a rabbit hole.', xp: 15, repeatable: true },
+  { id: 'know-magic-trick', pillar: 'knowledge', title: 'Learn a magic trick', description: 'A fun party skill that builds confidence.', xp: 20, repeatable: false },
+  { id: 'know-creative-class', pillar: 'knowledge', title: 'Take a class on a new skill', description: 'Pottery, photography, woodworking - anything hands-on.', xp: 35, repeatable: false },
+  { id: 'know-first-aid', pillar: 'knowledge', title: 'Learn basic first aid / CPR', description: 'A genuinely life-saving skill.', xp: 40, repeatable: false },
+  { id: 'know-public-speaking', pillar: 'knowledge', title: 'Record yourself giving a short talk', description: 'Watch it back and note one thing to improve.', xp: 25, repeatable: false },
+
+  // ──────────────────────────────── SPEECH ────────────────────────────────
+  { id: 'speech-greet-3', pillar: 'speech', title: 'Greet 3 people with a smile', description: 'A friendly "hello" to coworkers, neighbors, or strangers.', xp: 10, repeatable: true },
+  { id: 'speech-start-conversation', pillar: 'speech', title: 'Start a conversation with someone', description: 'Ask about their day, their interests, anything genuine.', xp: 15, repeatable: true },
+  { id: 'speech-compliment', pillar: 'speech', title: 'Give someone a genuine compliment', description: 'Notice something good and say it out loud.', xp: 10, repeatable: true },
+  { id: 'speech-active-listening', pillar: 'speech', title: 'Practice active listening', description: 'Have one conversation where you focus fully and do not interrupt.', xp: 15, repeatable: true },
+  { id: 'speech-introduce', pillar: 'speech', title: 'Introduce yourself to someone new', description: 'Make eye contact, smile, and say your name.', xp: 15, repeatable: true },
+  { id: 'speech-ask-stranger', pillar: 'speech', title: 'Ask a stranger a simple question', description: 'Directions, the time, an opinion on something small.', xp: 10, repeatable: true },
+  { id: 'speech-reconnect', pillar: 'speech', title: 'Reach out to someone you have not talked to in a while', description: 'A quick message or call to an old friend.', xp: 20, repeatable: true },
+  { id: 'speech-open-questions', pillar: 'speech', title: 'Ask someone an open-ended question about their interests', description: 'This is how you "unlock" people - get them talking about what they love.', xp: 15, repeatable: true },
+  { id: 'speech-elevator-pitch', pillar: 'speech', title: 'Practice your introduction / "elevator pitch"', description: 'Have a smooth 30-second answer to "tell me about yourself".', xp: 20, repeatable: false },
+  { id: 'speech-join-group', pillar: 'speech', title: 'Join a club, meetup, or group activity', description: 'Put yourself in a room with new people regularly.', xp: 35, repeatable: false },
+  { id: 'speech-deep-conversation', pillar: 'speech', title: 'Have a deep conversation about goals or dreams', description: 'Go beyond small talk with someone you trust.', xp: 25, repeatable: false },
+  { id: 'speech-disagree', pillar: 'speech', title: 'Practice disagreeing respectfully', description: 'Voice a different opinion calmly and without conflict.', xp: 20, repeatable: false },
+  { id: 'speech-compliment-stranger', pillar: 'speech', title: 'Compliment a stranger', description: 'A barista, cashier, or someone you pass by.', xp: 15, repeatable: true },
+  { id: 'speech-call-not-text', pillar: 'speech', title: 'Call instead of text', description: 'Have one real conversation by voice instead of typing.', xp: 15, repeatable: true },
+  { id: 'speech-small-talk', pillar: 'speech', title: 'Practice small talk while waiting', description: 'In a line, waiting room, or elevator - strike up a light chat.', xp: 15, repeatable: true },
+  { id: 'speech-ask-for-help', pillar: 'speech', title: 'Ask someone for advice or help', description: 'Practice vulnerability - most people enjoy being asked.', xp: 20, repeatable: false },
+  { id: 'speech-record-yourself', pillar: 'speech', title: 'Record yourself speaking and review it', description: 'Notice your tone, pace, and body language.', xp: 20, repeatable: false },
+  { id: 'speech-network', pillar: 'speech', title: 'Introduce yourself to one new person in your field', description: 'A small step toward networking.', xp: 25, repeatable: false },
+  { id: 'speech-host-gathering', pillar: 'speech', title: 'Host or attend a social gathering', description: 'Put yourself in a social setting on purpose.', xp: 30, repeatable: false },
+  { id: 'speech-apologize', pillar: 'speech', title: 'Apologize sincerely to someone if needed', description: 'Clears the air and builds trust.', xp: 25, repeatable: false },
+  { id: 'speech-feedback', pillar: 'speech', title: 'Give someone constructive feedback', description: 'Kindly and clearly - focus on the behavior, not the person.', xp: 20, repeatable: false },
+  { id: 'speech-use-name', pillar: 'speech', title: 'Use someone\'s name in conversation', description: 'People love hearing their own name - try it naturally.', xp: 10, repeatable: true },
+  { id: 'speech-tell-story', pillar: 'speech', title: 'Tell a short story or joke to a group', description: 'Practice holding people\'s attention.', xp: 20, repeatable: true },
+
+  // ──────────────────────────────── HEALTH ────────────────────────────────
+  { id: 'health-water', pillar: 'health', title: 'Drink 8 glasses of water', description: 'Stay hydrated throughout the day.', xp: 10, repeatable: true },
+  { id: 'health-exercise-30', pillar: 'health', title: 'Exercise for 30 minutes', description: 'Any movement that gets your heart rate up.', xp: 20, repeatable: true },
+  { id: 'health-sleep', pillar: 'health', title: 'Get 7-8 hours of sleep', description: 'Wake up rested.', xp: 15, repeatable: true },
+  { id: 'health-veggies', pillar: 'health', title: 'Eat a vegetable with every meal', description: 'Small wins for your nutrition.', xp: 10, repeatable: true },
+  { id: 'health-walk', pillar: 'health', title: 'Take a 10-minute walk outside', description: 'Fresh air and movement.', xp: 10, repeatable: true },
+  { id: 'health-stretch', pillar: 'health', title: 'Stretch for 10 minutes', description: 'Improve flexibility and reduce tension.', xp: 10, repeatable: true },
+  { id: 'health-meal-prep', pillar: 'health', title: 'Meal prep healthy food for the week', description: 'Set future-you up for success.', xp: 25, repeatable: false },
+  { id: 'health-new-recipe', pillar: 'health', title: 'Try a new healthy recipe', description: 'Expand your healthy cooking repertoire.', xp: 15, repeatable: true },
+  { id: 'health-cook-instead', pillar: 'health', title: 'Cook a meal instead of ordering takeout', description: 'Save money and eat better.', xp: 15, repeatable: true },
+  { id: 'health-new-workout', pillar: 'health', title: 'Try a new workout routine', description: 'Yoga, HIIT, lifting, swimming - mix it up.', xp: 20, repeatable: false },
+  { id: 'health-early-bed', pillar: 'health', title: 'Go to bed 30 minutes earlier than usual', description: 'Build a better sleep schedule.', xp: 10, repeatable: true },
+  { id: 'health-cold-shower', pillar: 'health', title: 'Take a cold shower', description: 'A small daily challenge with big benefits.', xp: 15, repeatable: true },
+  { id: 'health-screen-curfew', pillar: 'health', title: 'No screens after 9pm', description: 'Give your brain a break before bed.', xp: 15, repeatable: true },
+  { id: 'health-track-meals', pillar: 'health', title: 'Track everything you eat for a day', description: 'Awareness is the first step to change.', xp: 15, repeatable: true },
+  { id: 'health-checkup', pillar: 'health', title: 'Schedule a health or dental checkup', description: 'Preventative care matters.', xp: 25, repeatable: false },
+  { id: 'health-meditate', pillar: 'health', title: 'Practice deep breathing or meditation for 10 minutes', description: 'Calm your mind and lower stress.', xp: 10, repeatable: true },
+  { id: 'health-stairs', pillar: 'health', title: 'Take the stairs instead of the elevator', description: 'Small movement adds up.', xp: 5, repeatable: true },
+  { id: 'health-sunlight', pillar: 'health', title: 'Spend 20 minutes in nature or sunlight', description: 'Good for mood and vitamin D.', xp: 10, repeatable: true },
+  { id: 'health-replace-drink', pillar: 'health', title: 'Replace a sugary drink with water', description: 'One small swap at a time.', xp: 10, repeatable: true },
+  { id: 'health-digital-detox', pillar: 'health', title: 'Have a screen-free evening', description: 'Disconnect for a few hours.', xp: 20, repeatable: true },
+
+  // ──────────────────────────────── PURPOSE ───────────────────────────────
+  { id: 'purpose-gratitude', pillar: 'purpose', title: 'Write down 3 things you are grateful for', description: 'Shift your focus to what is going well.', xp: 10, repeatable: true },
+  { id: 'purpose-hobby-time', pillar: 'purpose', title: 'Spend 15 minutes on a hobby or passion project', description: 'Make time for the thing that lights you up.', xp: 15, repeatable: true },
+  { id: 'purpose-reflect-goals', pillar: 'purpose', title: 'Reflect on your long-term goals', description: 'Re-read or rewrite your vision for the future.', xp: 15, repeatable: true },
+  { id: 'purpose-kindness', pillar: 'purpose', title: 'Do something kind for someone else', description: 'A small act of generosity.', xp: 15, repeatable: true },
+  { id: 'purpose-quality-time', pillar: 'purpose', title: 'Spend quality time with a loved one', description: 'No phones - just presence.', xp: 15, repeatable: true },
+  { id: 'purpose-journal', pillar: 'purpose', title: 'Journal about your day', description: 'Reflect on what happened and how you felt.', xp: 10, repeatable: true },
+  { id: 'purpose-plan-fun', pillar: 'purpose', title: 'Plan one fun activity for this week', description: 'Give yourself something to look forward to.', xp: 10, repeatable: true },
+  { id: 'purpose-joy-moment', pillar: 'purpose', title: 'Identify one thing that gave you joy today', description: 'Notice the good moments.', xp: 10, repeatable: true },
+  { id: 'purpose-plan-vacation', pillar: 'purpose', title: 'Research and plan a future vacation', description: 'Pick a destination, look at dates, start a plan.', xp: 30, repeatable: false },
+  { id: 'purpose-life-goals', pillar: 'purpose', title: 'Set a 1-year and 5-year life goal', description: 'Write down where you want to be.', xp: 30, repeatable: false },
+  { id: 'purpose-volunteer', pillar: 'purpose', title: 'Volunteer for a cause you care about', description: 'Give your time to something bigger than yourself.', xp: 30, repeatable: false },
+  { id: 'purpose-new-hobby', pillar: 'purpose', title: 'Try a new hobby you have been curious about', description: 'Just try it once - no commitment needed.', xp: 25, repeatable: false },
+  { id: 'purpose-vision-board', pillar: 'purpose', title: 'Create a vision board', description: 'Visualize the life you are building.', xp: 25, repeatable: false },
+  { id: 'purpose-plan-milestone', pillar: 'purpose', title: 'Plan a milestone celebration', description: 'Birthday, anniversary, or personal achievement.', xp: 25, repeatable: false },
+  { id: 'purpose-mission-statement', pillar: 'purpose', title: 'Write a personal mission statement', description: 'Define your "why" in a few sentences.', xp: 30, repeatable: false },
+  { id: 'purpose-unplugged-day', pillar: 'purpose', title: 'Spend a day doing something purely for fun', description: 'No productivity required - just enjoyment.', xp: 25, repeatable: false },
+  { id: 'purpose-mentor', pillar: 'purpose', title: 'Mentor someone or share your knowledge', description: 'Help someone else grow.', xp: 25, repeatable: false },
+  { id: 'purpose-create-something', pillar: 'purpose', title: 'Create something just for yourself', description: 'Art, music, writing - no audience needed.', xp: 20, repeatable: true },
+  { id: 'purpose-bucket-list', pillar: 'purpose', title: 'Take the first step on a bucket list item', description: 'Even a tiny step counts.', xp: 30, repeatable: false },
+  { id: 'purpose-retreat-day', pillar: 'purpose', title: 'Schedule a personal retreat day', description: 'A day dedicated to recharging and reflecting.', xp: 25, repeatable: false },
+  { id: 'purpose-explore-city', pillar: 'purpose', title: 'Explore a new place in your city', description: 'See something you have never seen before.', xp: 20, repeatable: false },
+  { id: 'purpose-define-fulfillment', pillar: 'purpose', title: 'Reflect on what "fulfillment" means to you', description: 'Write it down - revisit it often.', xp: 20, repeatable: false },
+
+  // ──────────────────────────────── FINANCE ───────────────────────────────
+  { id: 'finance-track-spending', pillar: 'finance', title: 'Track your spending for today', description: 'Write down everything you spent.', xp: 10, repeatable: true },
+  { id: 'finance-review-budget', pillar: 'finance', title: 'Review your budget or bank account', description: 'Stay aware of where your money goes.', xp: 10, repeatable: true },
+  { id: 'finance-save', pillar: 'finance', title: 'Set aside money in savings', description: 'Any amount counts.', xp: 15, repeatable: true },
+  { id: 'finance-read-article', pillar: 'finance', title: 'Read an article or chapter on personal finance', description: 'Keep learning about money.', xp: 15, repeatable: true },
+  { id: 'finance-investing-concept', pillar: 'finance', title: 'Research one investing concept', description: 'Index funds, compound interest, diversification, etc.', xp: 15, repeatable: true },
+  { id: 'finance-update-resume', pillar: 'finance', title: 'Update your resume', description: 'Keep it current and ready to go.', xp: 20, repeatable: false },
+  { id: 'finance-apply-job', pillar: 'finance', title: 'Apply to a job or freelance gig', description: 'Take a concrete step toward income.', xp: 25, repeatable: true },
+  { id: 'finance-marketing-skill', pillar: 'finance', title: 'Learn a new marketing or sales skill', description: 'Copywriting, social media, negotiation.', xp: 15, repeatable: true },
+  { id: 'finance-emergency-fund', pillar: 'finance', title: 'Set up or review your emergency fund goal', description: 'Aim for 3-6 months of expenses.', xp: 25, repeatable: false },
+  { id: 'finance-retirement', pillar: 'finance', title: 'Open or contribute to a retirement account', description: '401(k), IRA, or local equivalent.', xp: 30, repeatable: false },
+  { id: 'finance-index-funds', pillar: 'finance', title: 'Learn about index funds vs individual stocks', description: 'Understand the basics of long-term investing.', xp: 20, repeatable: false },
+  { id: 'finance-create-budget', pillar: 'finance', title: 'Create a monthly budget', description: 'Plan where your money should go.', xp: 25, repeatable: false },
+  { id: 'finance-negotiate-bill', pillar: 'finance', title: 'Negotiate a bill or subscription down', description: 'Call and ask for a better rate.', xp: 25, repeatable: false },
+  { id: 'finance-high-income-skill', pillar: 'finance', title: 'Practice a high-income skill', description: 'Sales, copywriting, coding, design.', xp: 20, repeatable: true },
+  { id: 'finance-network-industry', pillar: 'finance', title: 'Network with someone in your desired industry', description: 'Reach out for a coffee chat or call.', xp: 25, repeatable: false },
+  { id: 'finance-mock-interview', pillar: 'finance', title: 'Practice a mock job interview', description: 'Rehearse answers to common questions.', xp: 25, repeatable: false },
+  { id: 'finance-auto-save', pillar: 'finance', title: 'Set up an automatic savings transfer', description: '"Pay yourself first" automatically.', xp: 20, repeatable: false },
+  { id: 'finance-salary-research', pillar: 'finance', title: 'Research salary benchmarks for your role', description: 'Know your market value.', xp: 20, repeatable: false },
+  { id: 'finance-side-hustle', pillar: 'finance', title: 'Start or work on a side hustle idea', description: 'Build a second stream of income.', xp: 30, repeatable: true },
+  { id: 'finance-read-book', pillar: 'finance', title: 'Read a personal finance book', description: 'e.g. "Rich Dad Poor Dad", "The Psychology of Money".', xp: 40, repeatable: false },
+  { id: 'finance-net-worth', pillar: 'finance', title: 'Calculate your net worth', description: 'Assets minus liabilities - know your starting point.', xp: 20, repeatable: false },
+  { id: 'finance-taxes', pillar: 'finance', title: 'Learn about taxes and deductions', description: 'Understand how to keep more of what you earn.', xp: 25, repeatable: false },
+  { id: 'finance-linkedin', pillar: 'finance', title: 'Create or improve your LinkedIn profile', description: 'Make a strong first impression.', xp: 20, repeatable: false },
+];
+
+/** Skills that appear on a brand-new user's active list by default */
+export const STARTER_SKILL_IDS: string[] = [
+  // Knowledge
+  'know-read-20',
+  'know-practice-skill',
+  'know-write-summary',
+  // Speech
+  'speech-greet-3',
+  'speech-start-conversation',
+  'speech-open-questions',
+  // Health
+  'health-water',
+  'health-exercise-30',
+  'health-sleep',
+  // Purpose
+  'purpose-gratitude',
+  'purpose-hobby-time',
+  'purpose-journal',
+  // Finance
+  'finance-track-spending',
+  'finance-review-budget',
+  'finance-read-article',
+];
+
+export const SKILL_MAP: Record<string, SkillDefinition> = Object.fromEntries(
+  SKILLS.map((s) => [s.id, s]),
+);
